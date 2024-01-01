@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
       "start-dev": "webpack-dev-server --open",
-      "build": "webpack --no-parallel",
+      "build": "webpack",
       "test": "jest"
     },
     "keywords": [],
