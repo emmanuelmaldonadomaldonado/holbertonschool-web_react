@@ -32,7 +32,7 @@ var Teacher = /** @class */ (function () {
 }());
 exports.Teacher = Teacher;
 function isDirector(employee) {
-    return employee instanceof Director;
+    return employee.workDirectorTasks !== undefined;
 }
 exports.isDirector = isDirector;
 function executeWork(employee) {
@@ -44,3 +44,14 @@ function executeWork(employee) {
     }
 }
 exports.executeWork = executeWork;
+function teachClass(todayClass) {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    else if (todayClass === 'History') {
+        return 'Teaching History';
+    }
+    else {
+        return 'Unknown subject';
+    }
+}
