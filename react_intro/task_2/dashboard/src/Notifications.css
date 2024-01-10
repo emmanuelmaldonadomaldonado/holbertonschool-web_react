@@ -1,49 +1,14 @@
-/* Notifications.css */
-
 .Notifications {
-    border: 2px solid #ccc;
-    padding: 10px;
-  }
-  
-  /* task_2/dashboard/src/Notifications.css */
-
-/* Styles for notification container */
-.NotificationsContainer {
-  position: relative;
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 20px;
+	border: 2px dotted var(--holberton-red);
+	padding: 6px 12px;
+	position: relative;
+	margin-top: 12px;
 }
 
-/* Styles for close button */
-.CloseButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+li[data-priority="default"] {
+	color: blue;
 }
 
-/* Styles for the unordered list */
-.NotificationsList {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Styles for list items based on data-priority attribute */
-.NotificationsList li[data-priority="default"] {
-  color: blue;
-}
-
-.NotificationsList li[data-priority="urgent"] {
-  color: red;
+li[data-priority="urgent"] {
+	color: red;
 }
