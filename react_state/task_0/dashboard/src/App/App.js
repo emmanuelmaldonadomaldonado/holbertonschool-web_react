@@ -20,19 +20,19 @@ class App extends Component {
     this.ctrlHEventHandler = this.ctrlHEventHandler.bind(this);
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
-  };
+  }
 
   handleDisplayDrawer() {
     this.setState({
       displayDrawer: true,
     });
-  };
+  }
 
   handleHideDrawer() {
     this.setState({
       displayDrawer: false,
     });
-  };
+  }
 
   ctrlHEventHandler(e) {
     let k = e.key;
@@ -41,32 +41,29 @@ class App extends Component {
       alert('Logging you out');
       this.props.logOut();
     }
-  };
+  }
 
   handleKeyPressDown() {
     document.addEventListener("keydown", this.ctrlHEventHandler, false);
-  };
+  }
 
   componentDidMount() {
     this.handleKeyPressDown();
-  };
+    // Set displayDrawer to true when the component mounts
+    this.setState({
+      displayDrawer: true,
+    });
+  }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.ctrlHEventHandler, false);
-  };
+  }
 
   render() {
-
-    let {
-      isLoggedIn,
-    } = this.props;
-
-    let {
-      displayDrawer
-    } = this.state;
-
+    let { isLoggedIn } = this.props;
+    let { displayDrawer } = this.state;
     let i = 0;
-    
+
     let listNotifications = [
       {
         id: i++,
@@ -81,8 +78,8 @@ class App extends Component {
       {
         id: i++,
         type: "urgent",
-        html: {__html: getLatestNotification()},
-      }
+        html: { __html: getLatestNotification() },
+      },
     ];
 
     let listCourses = [
@@ -115,32 +112,31 @@ class App extends Component {
             />
             <Header />
           </div>
-          {
-            isLoggedIn === false &&
+          {isLoggedIn === false && (
             <BodySectionWithMarginBottom title="Log in to continue">
               <Login />
             </BodySectionWithMarginBottom>
-          }
-          {
-            isLoggedIn === true &&
+          )}
+          {isLoggedIn === true && (
             <BodySectionWithMarginBottom title="Course list">
               <CourseList listCourses={listCourses} />
             </BodySectionWithMarginBottom>
-          }
+          )}
           <BodySection title="News from the school">
             <p>
-              Labore ut consequat esse nostrud aute exercitation occaecat consequat ad cillum enim et est ex.
-               Qui proident veniam in aute magna occaecat.
-               Esse duis proident aliqua proident eu magna aliqua est exercitation.
-               Cupidatat ex eiusmod et commodo laborum veniam deserunt ad est excepteur cillum laborum.
+              Labore ut consequat esse nostrud aute exercitation occaecat
+              consequat ad cillum enim et est ex. Qui proident veniam in aute
+              magna occaecat. Esse duis proident aliqua proident eu magna aliqua
+              est exercitation. Cupidatat ex eiusmod et commodo laborum veniam
+              deserunt ad est excepteur cillum laborum.
             </p>
           </BodySection>
           <Footer />
         </div>
       </Fragment>
-    );  
-  };
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   app: {
@@ -153,25 +149,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderBottom: `3px solid var(--holberton-red)`,
     justifyContent: "space-between",
-  }
+  },
 });
-
-// const globalStyles = StyleSheet.create({
-//   globals: {
-//     ':root': {
-//       '--holberton-red': '#e1484c',
-//     },
-//     'body': {
-//       maxWidth: '90%',
-//       margin: '0 auto',
-//     },
-//     'div': {
-//       padding: '2px 8px',
-//     },
-//   },
-// });
-
-// css(globalStyles.globals);
 
 App.propTypes = {
   logOut: PropTypes.func,
