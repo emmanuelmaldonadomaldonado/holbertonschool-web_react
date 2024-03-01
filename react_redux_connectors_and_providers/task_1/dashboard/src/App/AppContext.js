@@ -6,6 +6,7 @@ export const user = {
   isLoggedIn: false,
 };
 
+
 export const logOut = () => {};
 
 const AppContext = React.createContext({ user, logOut });
