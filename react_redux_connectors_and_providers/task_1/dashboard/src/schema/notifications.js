@@ -34,3 +34,11 @@ export function getAllNotificationsByUser(userId) {
 
   return notificationsByUser;
 }
+
+const notificationsNormalizer = (data) => {
+  const normalizedData = normalize(data, [notification]);
+
+  return normalizedData.entities;
+};
+
+export default notificationsNormalizer;
