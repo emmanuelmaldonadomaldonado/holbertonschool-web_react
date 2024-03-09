@@ -185,5 +185,4 @@ const mapDispatchToProps = {
   logout,
 };
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
